@@ -1,14 +1,23 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
 
+// Pages.
+import { MyApp } from './app.component';
+import { LoginPage } from '../pages/login-page/login-page';
+import { EventsPage } from '../pages/events-page/events-page';
+
+// Services.
+import { ConfigService } from '../providers/config-service';
+import { EmailService } from '../providers/email-service';
+import { UtilityService } from '../providers/utility-service';
+import { UserService } from '../providers/user-service';
+
+// Bootstraping.
 @NgModule({
   declarations: [
     MyApp,
-    Page1,
-    Page2
+    LoginPage,
+    EventsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -16,9 +25,15 @@ import { Page2 } from '../pages/page2/page2';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Page1,
-    Page2
+    LoginPage,
+    EventsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    ConfigService,
+    EmailService,
+    UtilityService,
+    UserService
+  ]
 })
-export class AppModule {}
+export class AppModule { }

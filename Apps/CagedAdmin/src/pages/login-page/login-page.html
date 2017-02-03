@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Caged Space Admin</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="page-login page-body" padding>
+
+  <ion-card class="content-card">
+
+    <ion-card-content>
+
+      <div class="heading">Sign In to Caged Space</div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm.valid, loginForm.controls.email.value, loginForm.controls.password.value)">
+
+        <div padding>
+          <ion-item secondary>
+            <ion-label floating>Email:</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-item secondary>
+            <ion-label floating>Password:</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-buttons end>
+            <button class="nav-button" clear type="submit">
+            Login
+            <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </ion-buttons>
+        </div>
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
